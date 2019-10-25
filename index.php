@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php
+  if(!empty($_GET['success'])){
+    if($_GET['success'] == 1){
+      echo "註冊成功";
+    }
+  }
+?>
   <h1>會員登入</h1>
 <form action="login_api.php" method="post"> 
 <table class="wrapper">
