@@ -17,7 +17,7 @@
 </head>
 <body>
 <!---------設計表單內容---------->
-  <form action="" method="post"> 
+  <form action="forget.php" method="post"> 
     <div class="main">
       <div class="Sin"><a href="index.php"><i class="fas fa-sign-in-alt"></i> SIGN IN</a></div>
       <div class="Sup"><a href="reg.php"><i class="fas fa-user-plus"></i> SIGN UP</a></div>
@@ -25,8 +25,8 @@
           <h2>Find your password</h2>
           <div>User Name</div>
           <div><input type="text" name="acc" id="acc" class="input"></div><br>
-          <div> Password</div>
-          <div><input type="password" name="pw" id="pw" class="input"></div><br>
+          <div> E-mail</div>
+          <div><input type="email" name="email" id="email" class="input"></div><br>
           <input type="reset" value="reset" class="re"><br>
       </div>
       <div class="btn">
@@ -36,5 +36,14 @@
       </div>
     </div>
   </form>
+
+  <?php
+  $acc = $_POST['acc'];
+  $email = $_POST['email'];
+  $dsn = "mysql:host=localhost;chraset=utf8;dbname=mydb";
+  $pdo = new PDO($dns,'root','123');
+
+  $sql = "select "
+  ?>
 </body>
 </html>
