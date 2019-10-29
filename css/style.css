@@ -1,0 +1,94 @@
+a{
+    text-decoration: none;
+    color: rgb(172, 169, 169);;
+}
+body{
+    color: rgb(172, 169, 169);
+}
+.main{
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+    box-shadow: 10px 10px 10px rgb(160, 152, 152);
+}
+.Sin{
+    width: 250px;
+    height: 300px;
+    background-color:black;
+    position: absolute;
+    line-height: 300px;
+    text-align: center;
+    font-size: 30px;
+}
+.Sup{
+    width: 250px;
+    height: 300px;
+    background-color: rgb(46, 43, 43);
+    position: absolute;
+    top: 300px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 30px;
+}
+.content{
+    width: 550px;
+    height: 500px;
+    background-color: rgb(68, 68, 68);
+    position: absolute;
+    left: 250px;
+    padding: 50px;
+    box-sizing: border-box;
+    font-size:20px;
+}
+.btn{
+    width: 550px;
+    height: 100px;
+    background-color: rgb(87, 86, 86);
+    position: absolute;
+    left: 250px;
+    top: 500px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+.SinBtn{
+    width: 450px;
+    height: 100%;
+    position: absolute;
+    color: rgb(253, 184, 34);
+}
+.SinBtn2{
+    height: 100px;
+    position: absolute;
+    left: 450px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+.sub{
+    background-color:transparent;
+    width: 100px;
+    height: 100px;
+    border: 0;
+    position: absolute;
+    background-color: rgb(253, 184, 34);
+
+}
+.input{
+    width: 450px;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(131, 126, 126);
+    color: rgb(253, 184, 34);
+    font-size:28px;
+}
+.re{
+    width: 50px;
+    height: 25px;
+    border: 0;
+    background-color: rgb(253, 184, 34);
+    border-bottom: 2px solid rgb(131, 126, 126);
+}

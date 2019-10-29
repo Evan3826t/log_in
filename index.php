@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="#" type="image/x-icon">
-  <title>註冊登入系統</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>註冊登入系統</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+    body{
+        color: rgb(172, 169, 169);
+    }
+    .Sin{
+    color: rgb(253, 184, 34);
+    }
+    .content{
+        padding-top:150px;
+    }
+    </style>
 </head>
 <body>
-<?php
-  if(!empty($_GET['success'])){
-    if($_GET['success'] == 1){
-      echo "註冊成功";
-    }
-  }
-?>
-  <h1>會員登入</h1>
-<form action="login_api.php" method="post"> 
-<table class="wrapper">
-  <tr>
-    <td>帳號：</td>
-    <td><input type="text" name="acc" id="acc"></td>
-  </tr>
-  <tr>
-    <td>密碼：</td>
-    <td><input type="password" name="pw" id="pw"></td>
-  </tr>
-  <tr>
-    <td colspan="2" class="ct">
-        <input type="submit" value="登入">
-        <input type="reset" value="重置">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" class="ct">
-      <a href="reg.php" class="reg">註冊會員</a> 
-      <a href="forget.php" class="reg">忘記密碼</a>
-    </td>
-  </tr>
-</table>
-</form>   
+    <?php
+        if(!empty($_GET['success'])){
+          if($_GET['success'] == 1){
+            echo "註冊成功";
+          }
+        }
+      ?>
+    <form action="login_api.php" method="post"> 
+        <div class="main">
+            <div class="Sin"><i class="fas fa-sign-in-alt"></i> SIGN IN</div>
+            <div class="Sup"><a href="reg.php"><i class="fas fa-user-plus"></i> SIGN UP</a></div>
+            <div class="content">
+                <div>User Name</div>
+                <div><input type="text" name="acc" id="acc" class="input"></div><br>
+                <div> Password</div>
+                <div><input type="password" name="pw" id="pw" class="input"></div><br>
+                <input type="reset" value="reset" class="re"><br>
+                <div><a href="forget.php" style="color: rgb(253, 184, 34);">Forget your password?</a></div>
+            </div>
+            <div class="btn">
+                <div class="SinBtn">LET ME IN</div>
+                <div class="SinBtn2"><input type="submit" value=" ＞ " class="sub"></div>
+                
+            </div>
+        </div>
+    </form>
+
+    
+           
+        
+        
+         
 </body>
 </html>
