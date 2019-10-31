@@ -8,18 +8,17 @@
  * 5.根據比對的結果決定畫面的行為
   ***************************************************/
 
+include ("base.php");
 $acc = $_POST['acc'];
 $pw = $_POST['pw'];
 
-$dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo = new PDO($dsn,'root','123');
 
 // select * from user where acc='$acc' && pw='$pw' 回傳一堆資料
 // select count(*) from user where acc='$acc' && pw='$pw' 回傳一個數字，速度比較快
-$sql = "select count(*) as 'R' from user where acc='$acc' && pw='$pw'";
+$sql = "select * from user where acc='$acc' && pw='$pw'";
 
-// $data = $pdo->query($sql)->fetch(); 回傳一個陣列 
-$data = $pdo->query($sql)->fetchColumn(); // 回傳0或1
+$data = $pdo->query($sql)->fetch(); //回傳一個陣列 
+// $data = $pdo->query($sql)->fetchColumn();  回傳0或1
 
 print_r($data);
 
@@ -30,10 +29,10 @@ if($acc == $date['acc'] && $pw == $date['pw']){
   echo "登入失敗";
 }*/
 
-if($data){
-  echo "登入成功";
+if(!empty($data)){
+  header("location:member_center.php?id=" . $data['id']);
 }else{
-  echo "登入失敗";
+  header("location:index.php?err=1");
 }
 
 

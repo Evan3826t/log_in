@@ -26,6 +26,13 @@
             echo "註冊成功";
           }
         }
+        if(!empty($_GET['err'])){
+            if($_GET['err'] == 1){
+                $error = "登入失敗";
+            }
+        }else{
+            $error = '';
+        }
       ?>
     <form action="login_api.php" method="post"> 
         <div class="main">
@@ -38,6 +45,8 @@
                 <div><input type="password" name="pw" id="pw" class="input"></div><br>
                 <input type="reset" value="reset" class="re"><br>
                 <div><a href="forget.php" style="color: rgb(253, 184, 34);">Forget your password?</a></div>
+                <br>
+                <div style="color:red;"><?=$error?></div>
             </div>
             <div class="btn">
                 <div class="SinBtn">LET ME IN</div>

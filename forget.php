@@ -17,13 +17,11 @@
 </head>
 <body>
 <?php
+  include ("base.php");
   $pw='';
   if(!empty( $_POST['acc']) && !empty($_POST['email']) ){
     $acc = $_POST['acc'];
     $email = $_POST['email'];
-    $dsn = "mysql:host=localhost;chraset=utf8;dbname=mydb";
-    $pdo = new PDO($dsn,'root','123');
-
     $sql = "SELECT `pw` FROM `user` WHERE `acc`='$acc' && `email`='$email' ";
     
     $date = $pdo->query($sql)->fetch();

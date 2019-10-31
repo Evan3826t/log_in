@@ -44,7 +44,7 @@
                 <div>Birthday</div>
                 <input type="date" name="date" id="date" class="input">
                 <div>E-mail</div>
-                <input type="text" name="email" id="email" class="input">
+                <input type="email" name="email" id="email" class="input">
                 <br><br>
                 <input type="reset" value="reset" class="re">
             </div>
