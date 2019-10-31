@@ -30,7 +30,9 @@ if($acc == $date['acc'] && $pw == $date['pw']){
 }*/
 
 if(!empty($data)){
-  header("location:member_center.php?id=" . $data['id']);
+  header("location:member_center.php");
+  $_SESSION['id'] = $data['id'];
+  $_SESSION['login'] = 1;
 }else{
   header("location:index.php?err=1");
 }

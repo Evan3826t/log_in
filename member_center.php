@@ -89,7 +89,11 @@
 <body>
   <?php
     include ("base.php");
-    $id = $_GET['id'];
+    if(empty($_SESSION['login'])){
+      exit();
+    }
+
+    $id = $_SESSION['id'];
 
     $sql = "select * from `user` where `id`='$id'";
     $data = $pdo->query($sql)->fetch();

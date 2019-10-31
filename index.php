@@ -12,7 +12,7 @@
         color: rgb(172, 169, 169);
     }
     .Sin{
-    color: rgb(253, 184, 34);
+        color: rgb(253, 184, 34);
     }
     .content{
         padding-top:150px;
@@ -21,6 +21,7 @@
 </head>
 <body>
     <?php
+        include ("base.php");
         if(!empty($_GET['success'])){
           if($_GET['success'] == 1){
             echo "註冊成功";
@@ -32,6 +33,9 @@
             }
         }else{
             $error = '';
+        }
+        if(!empty($_SESSION['login'])){
+            header("location:member_center.php?do=123");
         }
       ?>
     <form action="login_api.php" method="post"> 
