@@ -14,11 +14,14 @@ $pw = $_POST['pw'];
 $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
 $pdo = new PDO($dsn,'root','123');
 
-$sql = "select * from user where acc='$acc' && pw='$pw'";
+// select * from user where acc='$acc' && pw='$pw' 回傳一堆資料
+// select count(*) from user where acc='$acc' && pw='$pw' 回傳一個數字，速度比較快
+$sql = "select count(*) as 'R' from user where acc='$acc' && pw='$pw'";
 
-$date = $pdo->query($sql)->fetch();
+// $data = $pdo->query($sql)->fetch(); 回傳一個陣列 
+$data = $pdo->query($sql)->fetchColumn(); // 回傳0或1
 
-print_r($date);
+print_r($data);
 
 /* $date有撈到資料，代表帳密正確，這樣多做一次
 if($acc == $date['acc'] && $pw == $date['pw']){
@@ -27,7 +30,7 @@ if($acc == $date['acc'] && $pw == $date['pw']){
   echo "登入失敗";
 }*/
 
-if(!empty($date)){
+if($data){
   echo "登入成功";
 }else{
   echo "登入失敗";

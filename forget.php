@@ -16,6 +16,27 @@
   </style>
 </head>
 <body>
+<?php
+  $pw='';
+  if(!empty( $_POST['acc']) && !empty($_POST['email']) ){
+    $acc = $_POST['acc'];
+    $email = $_POST['email'];
+    $dsn = "mysql:host=localhost;chraset=utf8;dbname=mydb";
+    $pdo = new PDO($dsn,'root','123');
+
+    $sql = "SELECT `pw` FROM `user` WHERE `acc`='$acc' && `email`='$email' ";
+    
+    $date = $pdo->query($sql)->fetch();
+    
+    if(!empty( $date)){
+      $pw = $date[0];
+    }else{
+      $pw = '找不到密碼';
+    }
+  }
+  
+
+  ?>
 <!---------設計表單內容---------->
   <form action="forget.php" method="post"> 
     <div class="main">
@@ -28,6 +49,8 @@
           <div> E-mail</div>
           <div><input type="email" name="email" id="email" class="input"></div><br>
           <input type="reset" value="reset" class="re"><br>
+          <br>
+          <div style="color:rgb(253, 184, 34);"> Your password is <br> <?=$pw?></div>
       </div>
       <div class="btn">
           <div class="SinBtn">GET MY PASSWORD</div>
@@ -37,13 +60,6 @@
     </div>
   </form>
 
-  <?php
-  $acc = $_POST['acc'];
-  $email = $_POST['email'];
-  $dsn = "mysql:host=localhost;chraset=utf8;dbname=mydb";
-  $pdo = new PDO($dns,'root','123');
-
-  $sql = "select "
-  ?>
+  
 </body>
 </html>
