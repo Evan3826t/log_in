@@ -34,7 +34,7 @@
         }else{
             $error = '';
         }
-        if(!empty($_SESSION['login'])){
+        if(!empty($_COOKIE['login'])){
             header("location:member_center.php?do=123");
         }
       ?>

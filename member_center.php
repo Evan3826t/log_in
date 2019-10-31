@@ -89,11 +89,11 @@
 <body>
   <?php
     include ("base.php");
-    if(empty($_SESSION['login'])){
+    if(empty($_COOKIE['login'])){
       exit();
     }
 
-    $id = $_SESSION['id'];
+    $id = $_COOKIE['id'];
 
     $sql = "select * from `user` where `id`='$id'";
     $data = $pdo->query($sql)->fetch();
