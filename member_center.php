@@ -98,6 +98,7 @@
     $sql = "select * from `user` where `id`='$id'";
     $data = $pdo->query($sql)->fetch();
   ?>
+  <a href="logout.php">登出</a>
   <div class="member">
     <form action="index.php" method="post"> 
         <div class="main">
