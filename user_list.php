@@ -44,8 +44,8 @@
       left: 100px;
       padding: 50px;
       box-sizing: border-box;
-      font-size:20px;
-      padding-top:10px
+      font-size: 20px;
+      padding-top: 10px;
   }
   .btn{
       width: 700px;
@@ -83,48 +83,50 @@
       left:150px
 
   }
- 
+  table  td{
+    border:2px solid white;
+  }
+  table{
+    border-collapse:collapse;
+  }
   </style>
 </head>
 <body>
   <?php
     include ("base.php");
-    if(empty($_SESSION['login'])){
-      exit();
-    }
+   
 
     $id = $_SESSION['id'];
 
-    $sql = "select * from `user` where `id`='$id'";
-    $data = $pdo->query($sql)->fetch();
+    $sql = "select * from `user`";
+    $row = $pdo->query($sql)->fetchall();
+
   ?>
   <a href="logout.php">登出</a>
-  <a href="user_list.php">會員列表</a>
   <div class="member">
     
         <div class="main">
           <div class="mem"><br><i class="fas fa-user-circle" style="color:rgb(253, 184, 34)"></i>   
           </div>
           <div class="content">
-            <form action="edit_member.php" method="POST">
-              <div>HI! 歡迎光臨!以下是你的個人資料:</div><br>
-              <div>User Name</div>
-              <p><?=$data['acc']?></p>
-              <div> Password</div>
-              <p><?=$data['pw']?></p>                
-              <div>Name</div>
-              <p><input type="text" name="name" id="name" class="input" value="<?=$data['name']?>"></p>
-              <div>Address</div>
-              <p><input type="text" name="addr" id="addr" class="input" value="<?=$data['addr']?>"></p>
-              <div>Tel</div>
-              <p><input type="text" name="tel" id="tel" class="input" value="<?=$data['tel']?>"></p>
-              <div>Birthday</div>
-              <p><input type="text" name="birthday" id="birthday" class="input" value="<?=$data['birthday']?>"></p>
-              <div>E-mail</div>
-              <p><input type="email" name="email" id="email" class="input" value="<?=$data['email']?>"></p>
-              <br>
-              <input type="submit" value="修改">
-            </form>
+          <table>
+          <?php
+            foreach($row as $user){
+                ?>
+                <tr>
+                    <td><?=$user['name']?></td>
+                    <td><?=$user['acc']?></td>
+                    <td><?=$user['addr']?></td>
+                    <td><?=$user['tel']?></td>
+                    <td><?=$user['email']?></td>
+                    <td><a href="delete_user.php?id=<?=$user['id']?>" style="color:rgb(253, 184, 34)">刪除</a></td>
+                
+                </tr>
+
+                <?php
+            }
+          ?>
+          </table>
           </div>
         <form action="index.php" method="post"> 
           <div class="btn">
