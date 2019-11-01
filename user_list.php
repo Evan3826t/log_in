@@ -93,14 +93,12 @@
 </head>
 <body>
   <?php
-    include ("base.php");
-   
-
-    $id = $_SESSION['id'];
-
-    $sql = "select * from `user`";
-    $row = $pdo->query($sql)->fetchall();
-
+    function all($table){
+      include ("base.php");
+      $id = $_SESSION['id'];
+      $sql = "select * from `$table`";
+      return  $pdo->query($sql)->fetchall();
+    }
   ?>
   <a href="logout.php">登出</a>
   <div class="member">
@@ -111,7 +109,7 @@
           <div class="content">
           <table>
           <?php
-            foreach($row as $user){
+            foreach(all("user") as $user){
                 ?>
                 <tr>
                     <td><?=$user['name']?></td>
