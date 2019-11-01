@@ -100,29 +100,32 @@
   ?>
   <a href="logout.php">登出</a>
   <div class="member">
-    <form action="index.php" method="post"> 
+    
         <div class="main">
-          <div class="mem"><br><i class="fas fa-user-circle" style="color:rgb(253, 184, 34)"></i>
-           
+          <div class="mem"><br><i class="fas fa-user-circle" style="color:rgb(253, 184, 34)"></i>   
           </div>
           <div class="content">
-            <div>HI! 歡迎光臨!以下是你的個人資料:</div><br>
-            <div>User Name</div>
-            <p><?=$data['acc']?></p>
-            <div> Password</div>
-            <p><?=$data['pw']?></p>                
-            <div>Name</div>
-            <p><?=$data['name']?></p>
-            <div>Address</div>
-            <p><?=$data['addr']?></p>
-            <div>Tel</div>
-            <p><?=$data['tel']?></p>
-            <div>Birthday</div>
-            <p><?=$data['birthday']?></p>
-            <div>E-mail</div>
-            <p><?=$data['email']?></p>
-            <br><br>
+            <form action="edit_member.php" method="POST">
+              <div>HI! 歡迎光臨!以下是你的個人資料:</div><br>
+              <div>User Name</div>
+              <p><?=$data['acc']?></p>
+              <div> Password</div>
+              <p><?=$data['pw']?></p>                
+              <div>Name</div>
+              <p><input type="text" name="name" id="name" class="input" value="<?=$data['name']?>"></p>
+              <div>Address</div>
+              <p><input type="text" name="addr" id="addr" class="input" value="<?=$data['addr']?>"></p>
+              <div>Tel</div>
+              <p><input type="text" name="tel" id="tel" class="input" value="<?=$data['tel']?>"></p>
+              <div>Birthday</div>
+              <p><input type="text" name="birthday" id="birthday" class="input" value="<?=$data['birthday']?>"></p>
+              <div>E-mail</div>
+              <p><input type="email" name="email" id="email" class="input" value="<?=$data['email']?>"></p>
+              <br>
+              <input type="submit" value="修改">
+            </form>
           </div>
+        <form action="index.php" method="post"> 
           <div class="btn">
               <div class="SinBtn">BACK TO HOMEPAGE</div>
               <div class="SinBtn2"><input type="submit" value=" ＞ " class="sub"></div>
