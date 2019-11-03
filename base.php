@@ -1,6 +1,6 @@
 <?
 $dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo = new PDO($dsn,'root','123');
+$pdo = new PDO($dsn,'root','');
 session_start();
 function all($table){
     global $pdo;// 引用全域變數

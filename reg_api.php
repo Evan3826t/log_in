@@ -9,39 +9,25 @@
  * 6.判斷SQL語法是否執行成功，執行下一步
  ****************************************tel********/
 
-echo $acc = $_POST['acc'];
-echo "<br>";
-echo $pw = $_POST['pw'];
-echo "<br>";
-echo $name = $_POST['name'];
-echo "<br>";
-echo $addr = $_POST['addr'];
-echo "<br>";
-echo $tel = $_POST['tel'];
-echo "<br>";
-echo $date = $_POST['date'];
-echo "<br>";
-echo $email = $_POST['email'];
+include_once "base.php";
+
+$user['acc'] = $_POST['acc'];
+$user['pw'] = $_POST['pw'];
+$user['name'] = $_POST['name'];
+$user['addr'] = $_POST['addr'];
+$user['tel'] = $_POST['tel'];
+$user['date'] = $_POST['date'];
+$user['email'] = $_POST['email'];
 
 // insert into user () value()
 
 
-$dsn = "mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo = new PDO($dsn,'root','123');
-
-$sql = "insert into user (`acc`,`pw`,`name`,`addr`,`tel`,`birthday`,`email`) 
-        value ('$acc','$pw','$name','$addr','$tel','$date','$email')";
-
-echo "<br>";
-echo "sql語法是：".$sql;
-
 // $pdo->exec($sql) 用在不需要回傳資料情況 (del,update,insert)
 //  echo $pdo->exec($sql);   送出表單
 
-echo "<br>";
 
 // 判斷是否成功
-if( $pdo->exec( $sql)){
+if( insert("user",$user)){
     // echo "新增成功";
     header("location:index.php?success=1");
 }else{
